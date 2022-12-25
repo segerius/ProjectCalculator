@@ -3,18 +3,14 @@ from tkinter import *
 
 root = Tk()
 colors = ['#CD5C5C', '#F08080', '#FA8072', '#E9967A', '#DC143C']
+p1 = PhotoImage(file='info.png')
+root.iconphoto(False, p1)
 
 
 def bgcolorrandom():
     global colors
-    rand = random.randrange(0, len(colors) - 1)
+    rand = random.randrange(len(colors))
     root.config(bg=colors[int(f'{rand}')])
-
-
-def bgcolorposledovatelno():
-    global colors
-    for i in range(0, len(colors) - 1):
-        root.config(bg=colors[int(f'{i}')])
 
 
 def bgcolororiginal():
@@ -39,9 +35,8 @@ w = Label(text='Калькулятор',
           anchor='nw'
           )
 e = Entry(bg='pink')
-btnrandombg = Button(text='Random Color', command=bgcolorrandom)
-btnblackorig = Button(text='Original', command=bgcolororiginal)
-btnbgposlefovatelno = Button(text='Color', command=bgcolorposledovatelno)
+btnrandombg = Button(text='Random Color', padx=0, pady=10, font=('Arial', 6, 'bold'), command=bgcolorrandom)
+btnblackorig = Button(text='Original', padx=0, pady=10, font=('Arial', 6, 'bold'), command=bgcolororiginal)
 b1 = Button(text='1', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
 b2 = Button(text='2', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
 b3 = Button(text='3', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
@@ -68,7 +63,6 @@ w.grid(row=1, column=1)
 e.grid(row=2, column=1)
 btnrandombg.grid(row=1, column=6)
 btnblackorig.grid(row=1, column=7)
-btnbgposlefovatelno.grid(row=1, column=8)
 b1.grid(row=4, column=2)
 b2.grid(row=4, column=3)
 b3.grid(row=4, column=4)
