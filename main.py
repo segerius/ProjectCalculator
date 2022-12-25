@@ -1,16 +1,23 @@
 import random
 from tkinter import *
 from random import randint
+
 root = Tk()
 colors = ['#CD5C5C', '#F08080', '#FA8072', '#E9967A', '#DC143C']
+
+
 def bgcolorrandom():
     global colors
-    rand = random.randrange(0, len(colors)-1)
+    rand = random.randrange(0, len(colors) - 1)
     root.config(bg=colors[int(f'{rand}')])
+
+
 def bgcolorposledovatelno():
     global colors
-    for i in range(0, len(colors)-1):
+    for i in range(0, len(colors) - 1):
         root.config(bg=colors[int(f'{i}')])
+
+
 def bgcolororiginal():
     root.config(bg='#87CEEB')
 
@@ -57,7 +64,7 @@ brazdel = Button(text='/', padx=20, pady=15, bg=f'{btncolor1}', activebackground
 bravno = Button(text='=', padx=20, pady=15, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
                 font=('Arial', 16, 'bold'))
 bsteret = Button(text='C', padx=20, pady=15, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
-                font=('Arial', 16, 'bold'))
+                 font=('Arial', 16, 'bold'))
 w.grid(row=1, column=1)
 e.grid(row=2, column=1)
 btnrandombg.grid(row=1, column=6)
