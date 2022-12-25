@@ -1,5 +1,7 @@
 import random
 from tkinter import *
+from tkinter import messagebox
+
 
 root = Tk()
 colors = ['#CD5C5C', '#F08080', '#FA8072', '#E9967A', '#DC143C']
@@ -27,8 +29,13 @@ def get_result():
     if res[-1] in '*+-/':
         res = res+res[:-1]
     e.delete(0, END)
-    e.insert(0, eval(res))
-
+    try:
+        e.insert(0, eval(res))
+    except (SystemError, NameError):
+        messagebox.showinfo('Warning', 'Вводятся только цифры!')
+    except ZeroDivisionError:
+        messagebox.showinfo('Warning', 'На ноль делить нельзя!')
+        e.insert(0, '0')
 
 root.title('Calculator')
 root.geometry('248x400+500+200')
