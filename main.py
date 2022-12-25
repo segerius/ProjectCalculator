@@ -25,7 +25,7 @@ def delete_entry():
 
 def get_result():
     res = e.get()
-    RESULT = Label(text=f'{res}').grid()
+    RESULT = Label(text=f'{res}').grid(row=7, column=0, columnspan=4)
 
 
 root.title('Calculator')
@@ -42,7 +42,7 @@ w = Label(text='Калькулятор',
           width=2,
           height=2
           )
-e = Entry(bg='pink', justify='right')
+e = Entry(bg='pink', justify='right', font=('Arial', 15))
 btnrandombg = Button(text='Random Color', padx=0, pady=10, bg='#C0C0C0', activebackground='#808080',
                      font=('Arial', 8, 'bold'), command=bgcolorrandom)
 btnblackorig = Button(text='Original', padx=0, pady=10, bg='#C0C0C0', activebackground='#808080',
