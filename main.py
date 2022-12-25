@@ -1,14 +1,22 @@
+import random
 from tkinter import *
-
+from random import randint
 root = Tk()
-
-
-def plus(a, b):
-    return a + b
+colors = ['#CD5C5C', '#F08080', '#FA8072', '#E9967A', '#DC143C']
+def bgcolorrandom():
+    global colors
+    rand = random.randrange(0, len(colors)-1)
+    root.config(bg=colors[int(f'{rand}')])
+def bgcolorposledovatelno():
+    global colors
+    for i in range(0, len(colors)-1):
+        root.config(bg=colors[int(f'{i}')])
+def bgcolororiginal():
+    root.config(bg='#87CEEB')
 
 
 root.title('Calculator')
-root.geometry('500x400+500+200')
+root.geometry('700x400+500+200')
 root.config(bg='#87CEEB')
 btncolor1 = '#FF00FF'
 btncolor2 = '#800080'
@@ -25,8 +33,11 @@ w = Label(text='Калькулятор',
           anchor='nw'
           )
 e = Entry(bg='pink')
+btnrandombg = Button(text='Random Color', command=bgcolorrandom)
+btnblackorig = Button(text='Original', command=bgcolororiginal)
+btnbgposlefovatelno = Button(text='Color', command=bgcolorposledovatelno)
 b1 = Button(text='1', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b2 = Button(text='2', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b2 = Button(text='2', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'), command=bgcolororiginal)
 b3 = Button(text='3', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
 b4 = Button(text='4', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
 b5 = Button(text='5', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
@@ -45,8 +56,13 @@ brazdel = Button(text='/', padx=20, pady=15, bg=f'{btncolor1}', activebackground
                  font=('Arial', 16, 'bold'))
 bravno = Button(text='=', padx=20, pady=15, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
                 font=('Arial', 16, 'bold'))
+bsteret = Button(text='C', padx=20, pady=15, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
+                font=('Arial', 16, 'bold'))
 w.grid(row=1, column=1)
 e.grid(row=2, column=1)
+btnrandombg.grid(row=1, column=6)
+btnblackorig.grid(row=1, column=7)
+btnbgposlefovatelno.grid(row=1, column=8)
 b1.grid(row=4, column=2)
 b2.grid(row=4, column=3)
 b3.grid(row=4, column=4)
@@ -62,5 +78,6 @@ bminus.grid(row=3, column=5)
 bumno.grid(row=4, column=5)
 brazdel.grid(row=5, column=5)
 bravno.grid(row=5, column=3)
+bsteret.grid(row=5, column=4)
 
 root.mainloop()
