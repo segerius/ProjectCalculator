@@ -1,6 +1,5 @@
 import random
 from tkinter import *
-from random import randint
 
 root = Tk()
 colors = ['#CD5C5C', '#F08080', '#FA8072', '#E9967A', '#DC143C']
@@ -43,27 +42,27 @@ e = Entry(bg='pink')
 btnrandombg = Button(text='Random Color', command=bgcolorrandom)
 btnblackorig = Button(text='Original', command=bgcolororiginal)
 btnbgposlefovatelno = Button(text='Color', command=bgcolorposledovatelno)
-b1 = Button(text='1', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b2 = Button(text='2', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b3 = Button(text='3', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b4 = Button(text='4', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b5 = Button(text='5', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b6 = Button(text='6', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b7 = Button(text='7', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b8 = Button(text='8', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b9 = Button(text='9', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-b0 = Button(text='0', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
-bplus = Button(text='+', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
+b1 = Button(text='1', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b2 = Button(text='2', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b3 = Button(text='3', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b4 = Button(text='4', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b5 = Button(text='5', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b6 = Button(text='6', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b7 = Button(text='7', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b8 = Button(text='8', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b9 = Button(text='9', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+b0 = Button(text='0', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'))
+bplus = Button(text='+', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
                font=('Arial', 16, 'bold'))
-bminus = Button(text='_', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
+bminus = Button(text='-', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
                 font=('Arial', 16, 'bold'))
-bumno = Button(text='x', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
+bumno = Button(text='x', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
                font=('Arial', 16, 'bold'))
-brazdel = Button(text='/', padx=20, pady=15, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
+brazdel = Button(text='/', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
                  font=('Arial', 16, 'bold'))
-bravno = Button(text='=', padx=20, pady=15, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
+bravno = Button(text='=', width=4, height=2, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
                 font=('Arial', 16, 'bold'))
-bsteret = Button(text='C', padx=20, pady=15, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
+bsteret = Button(text='C', width=4, height=2, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
                  font=('Arial', 16, 'bold'))
 w.grid(row=1, column=1)
 e.grid(row=2, column=1)
