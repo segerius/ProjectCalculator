@@ -22,10 +22,12 @@ def bgcolororiginal():
 def delete_entry():
     e.delete(0, END)
 
-
 def get_result():
     res = e.get()
-    RESULT = Label(text=f'{res}').grid(row=7, column=0, columnspan=4)
+    if res[-1] in '*+-/':
+        res = res+res[:-1]
+    e.delete(0, END)
+    e.insert(0, eval(res))
 
 
 root.title('Calculator')
@@ -43,6 +45,7 @@ w = Label(text='Калькулятор',
           height=2
           )
 e = Entry(bg='pink', justify='right', font=('Arial', 15))
+e.insert(0, '0')
 btnrandombg = Button(text='Random Color', padx=0, pady=10, bg='#C0C0C0', activebackground='#808080',
                      font=('Arial', 8, 'bold'), command=bgcolorrandom)
 btnblackorig = Button(text='Original', padx=0, pady=10, bg='#C0C0C0', activebackground='#808080',
