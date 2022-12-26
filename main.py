@@ -2,7 +2,6 @@ import random
 from tkinter import *
 from tkinter import messagebox
 
-
 root = Tk()
 colors = ['#CD5C5C', '#F08080', '#FA8072', '#E9967A', '#DC143C']
 p1 = PhotoImage(file='info.png')
@@ -21,13 +20,31 @@ def bgcolororiginal():
     root.config(bg='#87CEEB')
 
 
+def add_digit(digit):
+    value = e.get()
+    if value[0] == '0':
+        value = value[1:]
+    e.delete(0, END)
+    e.insert(0, value + digit)
+
+
+def add_operation(operation):
+    value = e.get()
+    if value[-1] in '+-*/':
+        value = value[:-1]
+    e.delete(0, END)
+    e.insert(0, value + operation)
+
+
 def delete_entry():
     e.delete(0, END)
+    e.insert(0, 0)
+
 
 def get_result():
     res = e.get()
     if res[-1] in '*+-/':
-        res = res+res[:-1]
+        res = res + res[:-1]
     e.delete(0, END)
     try:
         e.insert(0, eval(res))
@@ -36,6 +53,7 @@ def get_result():
     except ZeroDivisionError:
         messagebox.showinfo('Warning', 'На ноль делить нельзя!')
         e.insert(0, '0')
+
 
 root.title('Calculator')
 root.geometry('248x400+500+200')
@@ -58,33 +76,33 @@ btnrandombg = Button(text='Random Color', padx=0, pady=10, bg='#C0C0C0', activeb
 btnblackorig = Button(text='Original', padx=0, pady=10, bg='#C0C0C0', activebackground='#808080',
                       font=('Arial', 8, 'bold'), command=bgcolororiginal)
 b1 = Button(text='1', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '1'))
+            command=lambda: add_digit('1'))
 b2 = Button(text='2', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '2'))
+            command=lambda: add_digit('2'))
 b3 = Button(text='3', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '3'))
+            command=lambda: add_digit('3'))
 b4 = Button(text='4', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '4'))
+            command=lambda: add_digit('4'))
 b5 = Button(text='5', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '5'))
+            command=lambda: add_digit('5'))
 b6 = Button(text='6', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '6'))
+            command=lambda: add_digit('6'))
 b7 = Button(text='7', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '7'))
+            command=lambda: add_digit('7'))
 b8 = Button(text='8', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '8'))
+            command=lambda: add_digit('8'))
 b9 = Button(text='9', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '9'))
+            command=lambda: add_digit('9'))
 b0 = Button(text='0', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}', font=('Arial', 16, 'bold'),
-            command=lambda: e.insert(END, '0'))
+            command=lambda: add_digit('0'))
 bplus = Button(text='+', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
-               font=('Arial', 16, 'bold'), command=lambda: e.insert(END, '+'))
+               font=('Arial', 16, 'bold'), command=lambda: add_operation('+'))
 bminus = Button(text='-', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
-                font=('Arial', 16, 'bold'), command=lambda: e.insert(END, '-'))
+                font=('Arial', 16, 'bold'), command=lambda: add_operation('-'))
 bumno = Button(text='x', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
-               font=('Arial', 16, 'bold'), command=lambda: e.insert(END, '*'))
+               font=('Arial', 16, 'bold'), command=lambda: add_operation('*'))
 brazdel = Button(text='/', width=4, height=2, bg=f'{btncolor1}', activebackground=f'{btncolor2}',
-                 font=('Arial', 16, 'bold'), command=lambda: e.insert(END, '/'))
+                 font=('Arial', 16, 'bold'), command=lambda: add_operation('/'))
 bravno = Button(text='=', width=4, height=2, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
                 font=('Arial', 16, 'bold'), command=get_result)
 bsteret = Button(text='C', width=4, height=2, bg=f'{btncolorravno1}', activebackground=f'{btncolorravno2}',
