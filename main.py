@@ -6,7 +6,7 @@ root = Tk()
 colors = ['#CD5C5C', '#F08080', '#FA8072', '#E9967A', '#DC143C']
 p1 = PhotoImage(file='info.png')
 root.iconphoto(False, p1)
-root.resizable(False, True)
+root.resizable(False, False)
 root.minsize(200, 350)
 
 
@@ -22,7 +22,7 @@ def bgcolororiginal():
 
 def add_digit(digit):
     value = e.get()
-    if value[0] == '0':
+    if value[0] == '0' and len(value) == 1:
         value = value[1:]
     e.delete(0, END)
     e.insert(0, value + digit)
@@ -41,6 +41,10 @@ def delete_entry():
     e.insert(0, 0)
 
 
+def add_button():
+    pass
+
+
 def get_result():
     res = e.get()
     if res[-1] in '*+-/':
@@ -48,23 +52,24 @@ def get_result():
     e.delete(0, END)
     try:
         e.insert(0, eval(res))
-    except (SystemError, NameError):
+    except (SystemError, NameError, SyntaxError):
         messagebox.showinfo('Warning', 'Вводятся только цифры!')
+        e.insert(0, '0')
     except ZeroDivisionError:
         messagebox.showinfo('Warning', 'На ноль делить нельзя!')
         e.insert(0, '0')
 
 
 root.title('Calculator')
-root.geometry('248x400+500+200')
+root.geometry('248x390+500+200')
 root.config(bg='#87CEEB')
-btncolor1 = '#FF00FF'
-btncolor2 = '#800080'
+btncolor1 = '#87CEFA'
+btncolor2 = '#00BFFF'
 btncolorravno1 = 'red'
 btncolorravno2 = '#800000'
 
 w = Label(text='Калькулятор',
-          font=('Arial', 12, 'bold'),
+          font=('Courier New', 16, 'bold'),
           bg='#4682B4',
           width=2,
           height=2
